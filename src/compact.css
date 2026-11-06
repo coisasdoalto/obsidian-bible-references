@@ -1,0 +1,16 @@
+.bible-references-compact .br-tooltip {
+  --br-tooltip-width: 320px;
+  --br-tooltip-max-height: 320px;
+}
+
+.bible-references-compact .br-tooltip-header {
+  padding: 6px 10px;
+}
+
+.bible-references-compact .br-tooltip-body {
+  padding: 8px 10px 0;
+}
+
+.bible-references-compact .br-tooltip-footer {
+  padding: 6px 10px;
+}

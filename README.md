@@ -2,7 +2,7 @@
 
 Exibe passagens bíblicas ao interagir com referências nas notas, em modo de leitura. Usa a biblioteca [Bible References](https://github.com/coisasdoalto/bible-references) e consulta o [biblias.app](https://biblias.app).
 
-Nas configurações, escolha a cor de destaque e o tema da janela. A tradução utilizada é ACF.
+Nas configurações, escolha a cor de destaque, o tema e o estilo da janela. A tradução utilizada é ACF.
 
 ## Desenvolvimento
 

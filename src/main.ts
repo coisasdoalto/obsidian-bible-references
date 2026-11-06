@@ -1,7 +1,8 @@
 import { MarkdownRenderChild, Plugin, PluginSettingTab, Setting, type App } from "obsidian";
 import { mountBibleReferences, type BibleReferencesHandle } from "@coisasdoalto/bible-references";
 import "@coisasdoalto/bible-references/style.css";
-import { DEFAULT_SETTINGS, resolveTheme, type BibleSettings, type ThemeChoice } from "./settings";
+import "./compact.css";
+import { DEFAULT_SETTINGS, resolveTheme, type BibleSettings, type ThemeChoice, type WindowStyle } from "./settings";
 
 class BibleReferenceChild extends MarkdownRenderChild {
   private handle?: BibleReferencesHandle;
@@ -18,6 +19,7 @@ class BibleReferenceChild extends MarkdownRenderChild {
   update(): void {
     this.handle?.destroy();
     this.containerEl.style.setProperty("--br-accent", this.plugin.settings.accentColor);
+    this.containerEl.classList.toggle("bible-references-compact", this.plugin.settings.windowStyle === "compact");
     const isDark = this.containerEl.ownerDocument.body.classList.contains("theme-dark");
     const theme = resolveTheme(this.plugin.settings.theme, isDark);
     this.handle = mountBibleReferences(this.containerEl, { theme, container: this.containerEl });
@@ -26,6 +28,7 @@ class BibleReferenceChild extends MarkdownRenderChild {
   onunload(): void {
     this.handle?.destroy();
     this.containerEl.style.removeProperty("--br-accent");
+    this.containerEl.classList.remove("bible-references-compact");
     this.plugin.children.delete(this);
   }
 }
@@ -49,6 +52,13 @@ class BibleSettingsTab extends PluginSettingTab {
         .addOption("dark", "Escuro")
         .setValue(this.plugin.settings.theme)
         .onChange(async (value) => this.plugin.updateSettings({ theme: value as ThemeChoice })));
+    new Setting(this.containerEl)
+      .setName("Estilo da janela")
+      .addDropdown((dropdown) => dropdown
+        .addOption("standard", "Padrão")
+        .addOption("compact", "Compacto")
+        .setValue(this.plugin.settings.windowStyle)
+        .onChange(async (value) => this.plugin.updateSettings({ windowStyle: value as WindowStyle })));
   }
 }
 
