@@ -10,8 +10,8 @@ As passagens são consultadas no [biblias.app](https://biblias.app), na traduç�
 
 Requer Obsidian 1.8.0 ou mais recente.
 
-1. Baixe `main.js`, `manifest.json` e `styles.css` na [última release](https://github.com/coisasdoalto/obsidian-bible-references/releases/latest).
-2. No seu cofre, crie a pasta `.obsidian/plugins/bible-references/` e coloque os três arquivos nela.
+1. Baixe `bible-references.zip` na [última release](https://github.com/coisasdoalto/obsidian-bible-references/releases/latest).
+2. Extraia o ZIP na pasta `.obsidian/plugins/` do seu cofre. Ele criará a pasta `bible-references` com os arquivos do plugin.
 3. No Obsidian, abra **Configurações → Plugins da comunidade**, desative o modo restrito se necessário e habilite **Bible References**. Se o plugin não aparecer, recarregue o Obsidian.
 
 ## Uso e configurações
